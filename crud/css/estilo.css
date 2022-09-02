@@ -1,0 +1,77 @@
+body {
+    background-color: #DEDEDE;
+}
+
+#conteudo-novo {
+    visibility: hidden;
+    height: 0px;
+    transform: translateY(-40px);
+}
+
+#conteudo-listar {
+    visibility: visible;
+    height: auto;
+}
+
+.form-animar {
+    animation-name: slide;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.form-animar-off {
+    animation-name: slide-off;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+.tabela-animar-off {
+    animation-name: slide-off-fade;
+    animation-duration: 1.5s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes slide {
+    20% { /* até os primeiros 20% do tempo ele vai reduzir a distancia para -10px */
+        height: auto;
+        transform: translateY(-10);
+    }
+
+    100% { /* dos 20% ao 100% do tempo ele vai reduzir a distancia para 0px */
+        transform: translateY(0);
+        visibility: visible;
+        height: auto;
+    }
+}
+
+@keyframes slide-off {
+    0% {
+        height: auto;
+        visibility: visible;
+        transform: translateY(-10px);
+    }
+
+    50% {
+        transform: translateY(-40px);
+        visibility: hidden;
+        height: auto;
+    }
+
+    80% { 
+        visibility: hidden;
+        height: 0px;
+    }
+}
+
+
+@keyframes slide-off-fade {
+    50% {
+        visibility: hidden;
+        height: auto;
+    }
+
+    100% {
+        visibility: hidden;
+        height: 0px;
+    }
+}
